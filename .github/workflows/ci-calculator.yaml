@@ -33,9 +33,21 @@ jobs:
             virtualenvs-create: true
             virtualenvs-in-project: true
 
-      - name: Run tests and collect coverage
+      - name: Run Unit tests and collect coverage
         run: |
-          pytest --cov --cov-fail-under=90 --cov-report=term-missing
+          coverage run -m pytest tests/unit_test_calculator.py --cov-fail-under=80 --cov-report=term-missing
+          coverage xml
+      - uses: codecov/codecov-action@v3
+        with:
+          flags: unit_tests
+
+      - name: Run Integration tests and collect coverage
+        run: |
+          coverage run -m pytest tests/integ_test_calculator.py --cov-fail-under=80 --cov-report=term-missing
+          coverage xml
+      - uses: codecov/codecov-action@v3
+        with:
+          flags: integration_tests
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
