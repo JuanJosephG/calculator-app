@@ -91,3 +91,15 @@ class Calculator:
             raise TypeError
 
         return self.result
+    
+    def module(self, number1: Union[int, float], number2: Union[int, float]):
+        self.number1 = number1
+        self.number2 = number2
+
+        try:
+            self.result = self.number1 % self.number2
+
+        except TypeError:
+            raise TypeError
+
+        return self.result
