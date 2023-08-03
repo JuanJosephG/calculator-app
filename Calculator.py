@@ -92,7 +92,7 @@ class Calculator:
 
         return self.result
     
-    def new_operation(self, number1: Union[int, float], number2: Union[int, float]):
+    def module(self, number1: Union[int, float], number2: Union[int, float]):
         self.number1 = number1
         self.number2 = number2
 

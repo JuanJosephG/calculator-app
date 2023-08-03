@@ -39,6 +39,14 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(self.calculator.subtract(10, -5), 15)
         self.assertRaises(TypeError, self.calculator.subtract, 10, "5")
         self.assertRaises(TypeError, self.calculator.subtract, "10", 5)
+    
+    def test_module(self):
+
+        self.assertEqual(self.calculator.module(15, 4), 3)
+        self.assertEqual(self.calculator.module(10, 16), 10)
+        self.assertEqual(self.calculator.module(17, 12), 5)
+        self.assertRaises(TypeError, self.calculator.subtract, 22, "5")
+        self.assertRaises(TypeError, self.calculator.subtract, "10", 5)
 
 
 if __name__ == "__main__":
